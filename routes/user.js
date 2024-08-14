@@ -115,5 +115,4 @@ router.delete('/delete_employee/:empId', (req, res) => {
 
 })
 
-
 module.exports = router;
