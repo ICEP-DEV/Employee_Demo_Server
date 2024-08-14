@@ -21,7 +21,7 @@ router.post('/register_employee', function (req, res) {
     })
 })
 
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     connection.query(`select * from users where email = '${req.body.email}'`, (err, results) => {
         if (err) {
             console.log(err);
@@ -42,7 +42,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/all_employees', (req, res) => {
-    connection.query(`SELECT email, firstname, lastname, salary
+    connection.query(`SELECT email, firstname, lastname, salary, e.id
                         FROM users u, employee e
                         WHERE u.id = e.userId`, (err, results) => {
         if (err) {
